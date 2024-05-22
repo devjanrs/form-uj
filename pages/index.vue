@@ -48,10 +48,11 @@ const selected4 = ref('')
 const method = ['Pix', 'Dinheiro', 'Débito', 'Crédito']
 
 const selected5 = ref(method[0])
+
 </script>
 
 <template >
-  <UCard>
+  <UCard class="w-1/2 mx-auto">
       <template #header>
         <UAlert  
         description="ENCONTRO DE JOVENS - DATA: 12,13,14 de Julho de 2024"
@@ -61,53 +62,60 @@ const selected5 = ref(method[0])
         <Placeholder class="h-8" />
       </template>
 
-        <UDivider label="PREENCHA O FORMULÁRIO COM SEUS DADOS PESSOAIS" />
       
-        <UFormGroup v-slot="{ error }" label="Nome completo">
-          <UInput/>
-        </UFormGroup>
-      
-        <UFormGroup  label="RG" required>
-          <UInput  placeholder="00.000.000-0" />
-        </UFormGroup>
-      
-        <UFormGroup label="CPF" required>
-          <UInput placeholder="000.000.000-00"/>
-        </UFormGroup>
-      
-        <UFormGroup label="Tel. Residencial">
-          <UInput placeholder="00000000" icon="i-heroicons-phone-solid"/>
-        </UFormGroup>
-      
-        <UFormGroup label="Tel. Celular" required>
-          <UInput placeholder="00000000" icon="i-heroicons-device-tablet-16-solid"/>
-        </UFormGroup>
-
+        <div class="flex flex-col gap-4">
+          <UDivider label="PREENCHA O FORMULÁRIO COM SEUS DADOS PESSOAIS" />
+          
+          <UFormGroup size="xl" label="Nome completo" required>
+            <UInput/>
+          </UFormGroup>
         
-      
-        <UDivider label="FORMA DE PAGAMENTO (NÃO ACEITAMOS CHEQUE)" />
-        <UAlert title="Valor R$430,00"/>
-        <UInputMenu v-model="selected5" :options="method"/>
+          <UFormGroup size="xl" label="RG" required>
+            <UInput  placeholder="00.000.000-0" />
+          </UFormGroup>
         
-      
-        <UDivider label="DADOS MÉDICOS" />
-        <URadioGroup v-model="selected" legend="Necessita de cuidados médicos?" :options="options" />
-        <URadioGroup v-model="selected2" legend="Necessita de medicamentos?" :options="options2" />
-        <URadioGroup v-model="selected3" legend="É alérgico?" :options="options3" />
-        <URadioGroup v-model="selected4" legend="Você é:" :options="options4" />
+          <UFormGroup size="xl" label="CPF" required>
+            <UInput placeholder="000.000.000-00"/>
+          </UFormGroup>
+
+          <UFormGroup size="xl" label="Data de Nascimento" required>
+            <UInput type="date" placeholder="00/00/000"/>
+          </UFormGroup>
         
+          <UFormGroup size="xl" label="Tel. Residencial">
+            <UInput placeholder="00000000" icon="i-heroicons-phone-solid"/>
+          </UFormGroup>
+        
+          <UFormGroup size="xl" label="Tel. Celular" required>
+            <UInput placeholder="00000000" icon="i-heroicons-device-tablet-16-solid"/>
+          </UFormGroup>
 
-        <UDivider label="NÃO NOS RESPONSABILIZAMOS PELA PERDA OU EXTRAVIO DE OBJETOS PESSOAIS.
-        A GUARDA E RESPONSABILIDADE DOS MESMOS É EXCLUSIVAMENTE DO ENCONTRISTA." />
+          
+        
+          <UDivider label="FORMA DE PAGAMENTO (NÃO ACEITAMOS CHEQUE)" />
+          <UAlert title="Valor R$430,00"/>
+          <UInputMenu size="xl" v-model="selected5" :options="method"/>
+          
+        
+          <UDivider label="DADOS MÉDICOS" />
+          <URadioGroup v-model="selected" legend="Necessita de cuidados médicos?" :options="options" />
+          <URadioGroup v-model="selected2" legend="Necessita de medicamentos?" :options="options2" />
+          <URadioGroup v-model="selected3" legend="É alérgico?" :options="options3" />
+          <URadioGroup v-model="selected4" legend="Você é:" :options="options4" />
+          
 
-        <UButton
-        icon="i-heroicons-arrow-right-start-on-rectangle-20-solid"
-        size="sm"
-        color="sky"
-        variant="soft"
-        label="Finalizar inscrição"
-        trailing
-        />
+          <UAlert title="NÃO NOS RESPONSABILIZAMOS PELA PERDA OU EXTRAVIO DE OBJETOS PESSOAIS.
+          A GUARDA E RESPONSABILIDADE DOS MESMOS É EXCLUSIVAMENTE DO ENCONTRISTA." />
+
+          <UButton
+          icon="i-heroicons-arrow-right-start-on-rectangle-20-solid"
+          size="sm"
+          color="sky"
+          variant="soft"
+          label="Finalizar inscrição"
+          trailing
+          />
+      </div>
 
     <template #footer>
       <UDivider label="LEVAR PARA O ENCONTRO" />
@@ -124,4 +132,4 @@ const selected5 = ref(method[0])
     </template>
   </UCard>
  </template>
-  
+
