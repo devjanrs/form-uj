@@ -51,13 +51,13 @@ const selected5 = ref(method[0])
 
 </script>
 
-<template >
-  <UCard class="w-1/2 mx-auto">
+<template>
+  <UCard class="w-1/2 mx-auto bg-red-900">
       <template #header>
         <UAlert  
-        description="ENCONTRO DE JOVENS - DATA: 12,13,14 de Julho de 2024"
-        :avatar="{ src: 'https://raw.githubusercontent.com/devjanrs/form-uj/main/public/logo%20uj.png' }"
-        title="UNIDADE JOVEM"
+        title = "UNIDADE JOVEM"
+        description = "ENCONTRO DE JOVENS - DATA: 12,13,14 de Julho de 2024"
+        :avatar = "{ src: 'https://raw.githubusercontent.com/devjanrs/form-uj/main/public/logo%20uj.png' }"
         />
         <Placeholder class="h-8" />
       </template>
@@ -107,7 +107,7 @@ const selected5 = ref(method[0])
           <UAlert title="NÃO NOS RESPONSABILIZAMOS PELA PERDA OU EXTRAVIO DE OBJETOS PESSOAIS.
           A GUARDA E RESPONSABILIDADE DOS MESMOS É EXCLUSIVAMENTE DO ENCONTRISTA." />
 
-          <UButton
+          <UButton class= "mx-auto"
           icon="i-heroicons-arrow-right-start-on-rectangle-20-solid"
           size="sm"
           color="sky"
