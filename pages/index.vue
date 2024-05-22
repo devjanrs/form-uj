@@ -28,6 +28,26 @@ const options3 = [{
 }];
 
 const selected3 = ref('')
+
+const options4 = [{
+  value: 'Evangélico',
+  label: 'Evangélico'
+}, {
+  value: 'Católico',
+  label: 'Católico'
+}, {
+  value: 'Espírita',
+  label: 'Espírita'
+}, {
+  value: 'Outros',
+  label: 'Outros'
+}];
+
+const selected4 = ref('')
+
+const method = ['Pix', 'Dinheiro', 'Débito', 'Crédito']
+
+const selected5 = ref(method[0])
 </script>
 
 <template >
@@ -35,7 +55,7 @@ const selected3 = ref('')
       <template #header>
         <UAlert  
         description="ENCONTRO DE JOVENS - DATA: 12,13,14 de Julho de 2024"
-        :avatar="{ src: 'https://www.flickr.com/photos/200712145@N07/53738012510/in/dateposted-public/' }"
+        :avatar="{ src: 'https://raw.githubusercontent.com/devjanrs/form-uj/main/public/logo%20uj.png' }"
         title="UNIDADE JOVEM"
         />
         <Placeholder class="h-8" />
@@ -66,13 +86,15 @@ const selected3 = ref('')
         
       
         <UDivider label="FORMA DE PAGAMENTO (NÃO ACEITAMOS CHEQUE)" />
-      
+        <UAlert title="Valor R$430,00"/>
+        <UInputMenu v-model="selected5" :options="method"/>
         
       
         <UDivider label="DADOS MÉDICOS" />
         <URadioGroup v-model="selected" legend="Necessita de cuidados médicos?" :options="options" />
         <URadioGroup v-model="selected2" legend="Necessita de medicamentos?" :options="options2" />
         <URadioGroup v-model="selected3" legend="É alérgico?" :options="options3" />
+        <URadioGroup v-model="selected4" legend="Você é:" :options="options4" />
         
 
         <UDivider label="NÃO NOS RESPONSABILIZAMOS PELA PERDA OU EXTRAVIO DE OBJETOS PESSOAIS.
@@ -83,7 +105,7 @@ const selected3 = ref('')
         size="sm"
         color="sky"
         variant="soft"
-        label="Enviar meus dados"
+        label="Finalizar inscrição"
         trailing
         />
 
