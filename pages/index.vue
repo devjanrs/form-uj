@@ -1,13 +1,21 @@
 <script setup lang="ts">
-  const options = [{
+  const method = ['Pix', 'Dinheiro', 'Débito', 'Crédito']
+
+  const selected = ref(method[0])
+
+  const religion = ['Evangélico', 'Católico', 'Espírita', 'Outros']
+
+  const selected_religion = ref(religion[0])
+
+  const options1 = [{
   value: 'Sim',
   label: 'Sim'
 }, {
   value: 'Não',
   label: 'Não'
-}];
+}]
 
-const selected = ref('')
+const selected1 = ref('')
 
 const options2 = [{
   value: 'Sim',
@@ -15,7 +23,7 @@ const options2 = [{
 }, {
   value: 'Não',
   label: 'Não'
-}];
+}]
 
 const selected2 = ref('')
 
@@ -25,111 +33,92 @@ const options3 = [{
 }, {
   value: 'Não',
   label: 'Não'
-}];
+}]
 
 const selected3 = ref('')
-
-const options4 = [{
-  value: 'Evangélico',
-  label: 'Evangélico'
-}, {
-  value: 'Católico',
-  label: 'Católico'
-}, {
-  value: 'Espírita',
-  label: 'Espírita'
-}, {
-  value: 'Outros',
-  label: 'Outros'
-}];
-
-const selected4 = ref('')
-
-const method = ['Pix', 'Dinheiro', 'Débito', 'Crédito']
-
-const selected5 = ref(method[0])
 
 </script>
 
 <template>
-  <UCard class="w-1/2 mx-auto bg-red-900">
-      <template #header>
-        <UAlert  
-        title = "UNIDADE JOVEM"
-        description = "ENCONTRO DE JOVENS - DATA: 12,13,14 de Julho de 2024"
-        :avatar = "{ src: 'https://raw.githubusercontent.com/devjanrs/form-uj/main/public/logo%20uj.png' }"
-        />
-        <Placeholder class="h-8" />
-      </template>
+  <header class="bg-teal-800">
 
-      
-        <div class="flex flex-col gap-4">
-          <UDivider label="PREENCHA O FORMULÁRIO COM SEUS DADOS PESSOAIS" />
-          
-          <UFormGroup size="xl" label="Nome completo" required>
-            <UInput/>
-          </UFormGroup>
-        
-          <UFormGroup size="xl" label="RG" required>
-            <UInput  placeholder="00.000.000-0" />
-          </UFormGroup>
-        
-          <UFormGroup size="xl" label="CPF" required>
-            <UInput placeholder="000.000.000-00"/>
-          </UFormGroup>
-
-          <UFormGroup size="xl" label="Data de Nascimento" required>
-            <UInput type="date" placeholder="00/00/000"/>
-          </UFormGroup>
-        
-          <UFormGroup size="xl" label="Tel. Residencial">
-            <UInput placeholder="00000000" icon="i-heroicons-phone-solid"/>
-          </UFormGroup>
-        
-          <UFormGroup size="xl" label="Tel. Celular" required>
-            <UInput placeholder="00000000" icon="i-heroicons-device-tablet-16-solid"/>
-          </UFormGroup>
-
-          
-        
-          <UDivider label="FORMA DE PAGAMENTO (NÃO ACEITAMOS CHEQUE)" />
-          <UAlert title="Valor R$430,00"/>
-          <UInputMenu size="xl" v-model="selected5" :options="method"/>
-          
-        
-          <UDivider label="DADOS MÉDICOS" />
-          <URadioGroup v-model="selected" legend="Necessita de cuidados médicos?" :options="options" />
-          <URadioGroup v-model="selected2" legend="Necessita de medicamentos?" :options="options2" />
-          <URadioGroup v-model="selected3" legend="É alérgico?" :options="options3" />
-          <URadioGroup v-model="selected4" legend="Você é:" :options="options4" />
-          
-
-          <UAlert title="NÃO NOS RESPONSABILIZAMOS PELA PERDA OU EXTRAVIO DE OBJETOS PESSOAIS.
-          A GUARDA E RESPONSABILIDADE DOS MESMOS É EXCLUSIVAMENTE DO ENCONTRISTA." />
-
-          <UButton class= "mx-auto"
-          icon="i-heroicons-arrow-right-start-on-rectangle-20-solid"
-          size="sm"
-          color="sky"
-          variant="soft"
-          label="Finalizar inscrição"
-          trailing
-          />
+    <div class="text-white flex flex-row space-x-1 space-y-2 m-auto p-1">
+      <img class="w-20" src="/public/logo uj.png" alt="logo unidade jovem branco">
+      <div class="text-sm">
+        <h1>Unidade Jovem </h1>
+        <h2>Encontro de Jovens</h2>
+        <h3>Data: 12, 13, 14 de Julho de 2024</h3>
       </div>
+    </div>
+  </header>
 
-    <template #footer>
-      <UDivider label="LEVAR PARA O ENCONTRO" />
-      <UAlert title="DOCUMENTO DE IDENTIDADE, BÍBLIA, REPELENTE, ROUPAS LEVES, CONFORTÁVEIS E DECENTES. CASACO, ROUPA DE CAMA,
-      TRAVESSEIRO, FRONHA, TOALHA DE BANHO, OBJETOS DE HIGIENE PESSOAL (SHAMPOO, SABONETE, PASTA DE DENTES,
-      ESCOVA DE DENTES, ETC). DINHEIRO PARA ADQUIRIR NA CANTINA: REFRIGERANTES, SUCOS, BALAS, DOCES. ETC..." />
-        
-      <UAlert title="NO DIA 12/07/24 (6ª FEIRA) - CHEGAR NA IGREJA ÀS 19:00 HORAS
-      PARA FAZER O CHECK-IN " />
+  <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
+    <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Informações Pessoais</h1>
+    <div class="rounded">
+      <UFormGroup size="xl" label="Nome completo" required>
+        <UInput/>
+      </UFormGroup>
+  
+      <UFormGroup size="xl" label="RG" required>
+        <UInput/>
+      </UFormGroup>
+  
+      <UFormGroup size="xl" label="CPF" required>
+        <UInput/>
+      </UFormGroup>
+  
+      <UFormGroup size="xl" label="Data de Nascimento" required>
+        <UInput type="date"/>
+      </UFormGroup>
+  
+      <UFormGroup size="xl" label="Tel. Residencial" required>
+        <UInput/>
+      </UFormGroup>
+  
+      <UFormGroup size="xl" label="Tel. Celular" required>
+        <UInput/>
+      </UFormGroup>
+    </div>
+  </div>
 
-      
+  <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
+    <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Forma de pagamento (Não aceitamos cheque)</h1>
+    <div class="rounded">
+      <USelectMenu v-model="selected" :options="method" placeholder="Selecione o método"/>
+    </div>
+  </div>
 
-      <Placeholder class="h-8" />
-    </template>
-  </UCard>
- </template>
+  <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
+    <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Dados Médicos</h1>
+    <div class="rounded">
+      <URadioGroup :ui="{wrapper: 'mt-1'}" v-model="selected1" legend="Necessita de cuidados médicos?" :options="options1" />
+      <URadioGroup :ui="{wrapper: 'mt-4'}" v-model="selected2" legend="Necessita de medicamentos?" :options="options2" />
+      <URadioGroup :ui="{wrapper: 'mt-4'}" v-model="selected3" legend="É alergico?" :options="options3" />
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
+    <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Religião</h1>
+    <div class="rounded">
+      <USelectMenu v-model="selected_religion" :options="religion"/>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1 bg-zinc-200 rounded">
+    <h1 class="text-red-700 font-semibold p-1 rounded mb-1 text-base">
+      NÃO NOS RESPONSABILIZAMOS PELA PERDA OU EXTRAVIO DE OBJETOS PESSOAIS.
+      A GUARDA E RESPONSABILIDADE DOS MESMOS É EXCLUSIVAMENTE DO ENCONTRISTA.</h1>
+  </div>
+
+  <UButton class="mx-auto flex mt-4 mb-5 bg-teal-800"
+    icon="i-heroicons-pencil-square"
+    size="sm"
+    color="primary"
+    variant="solid"
+    label="Realizar inscrição"
+    trailing
+  />
+
+
+</template>
 
