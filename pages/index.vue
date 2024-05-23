@@ -49,7 +49,7 @@
 
   import { number, object, string, type InferType } from 'yup'
   import type { FormSubmitEvent } from '#ui/types'
-import { min } from 'date-fns';
+  import { min } from 'date-fns';
 
   const schema = object({
     name: string()
@@ -65,7 +65,7 @@ import { min } from 'date-fns';
     tel1: number(),
     tel2: number()
     .min(9, 'Digite seu número de telefone completo')
-    .required('Digite seu número de telefone'),
+    .required('Insira seu número de telefone'),
     pay: string().required('Selecione a forma de pagamento'),
     data1: string().required('Selecione pelo menos uma alternativa'),
     data2: string().required('Selecione pelo menos uma alternativa'),
@@ -88,6 +88,7 @@ import { min } from 'date-fns';
     // Do something with event.data
     console.log(event.data)
   }
+
 </script>
 
 <template>
