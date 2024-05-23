@@ -1,11 +1,11 @@
 <script setup lang="ts">
     const method = ['Pix', 'Dinheiro', 'Débito', 'Crédito']
 
-    const selected = ref(method[0])
+    const selected = ref(method[4])
 
-    const religion = ['Evangélico', 'Católico', 'Espírita', 'Outros']
+    const religion = ['Evangélico', 'Católico', 'Espírita', 'Outros', 'Não possuo']
 
-    const selected_religion = ref(religion[0])
+    const selected_religion = ref(religion[5])
 
     const options1 = [{
     value: 'Sim',
@@ -81,27 +81,27 @@
   <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
     <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Informações Pessoais</h1>
     <div class="rounded">
-      <UFormGroup size="xl" label="Nome completo" required>
+      <UFormGroup size="xl" label="Nome completo" name="name" required>
         <UInput/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="RG" required :ui="{wrapper: 'mt-4'}">
+      <UFormGroup size="xl" label="RG" name="rg" required :ui="{wrapper: 'mt-4'}">
         <UInput/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="CPF" required :ui="{wrapper: 'mt-4'}">
+      <UFormGroup size="xl" label="CPF" name="cpf" required :ui="{wrapper: 'mt-4'}">
         <UInput/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="Data de Nascimento" required :ui="{wrapper: 'mt-4'}">
+      <UFormGroup size="xl" label="Data de Nascimento" name="birth" required :ui="{wrapper: 'mt-4'}">
         <UInput type="date"/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="Tel. Residencial" required :ui="{wrapper: 'mt-4'}">
+      <UFormGroup size="xl" label="Tel. Residencial" required name="tel1" :ui="{wrapper: 'mt-4'}">
         <UInput/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="Tel. Celular" required :ui="{wrapper: 'mt-4'}">
+      <UFormGroup size="xl" label="Tel. Celular" required name="tel2" :ui="{wrapper: 'mt-4'}">
         <UInput/>
       </UFormGroup>
     </div>
@@ -111,23 +111,23 @@
     <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Forma de pagamento (Não aceitamos cheque)</h1>
     <p class="text-sm font-medium">Valor R$430,00</p>
     <div class="rounded">
-      <USelectMenu v-model="selected" :options="method" placeholder="Selecione o método"/>
+      <USelectMenu v-model="selected" :options="method" placeholder="Selecione o método de pagamento desejado" name="pay"/>
     </div>
   </div>
 
   <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
     <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Dados Médicos</h1>
     <div class="rounded">
-      <URadioGroup :ui="{wrapper: 'mt-1'}" v-model="selected1" legend="Necessita de cuidados médicos?" :options="options1" />
-      <URadioGroup :ui="{wrapper: 'mt-4'}" v-model="selected2" legend="Necessita de medicamentos?" :options="options2" />
-      <URadioGroup :ui="{wrapper: 'mt-4'}" v-model="selected3" legend="É alergico?" :options="options3" />
+      <URadioGroup :ui="{wrapper: 'mt-1'}" v-model="selected1" legend="Necessita de cuidados médicos?" :options="options1" name="data1"/>
+      <URadioGroup :ui="{wrapper: 'mt-4'}" v-model="selected2" legend="Necessita de medicamentos?" :options="options2" name="data2"/>
+      <URadioGroup :ui="{wrapper: 'mt-4'}" v-model="selected3" legend="É alergico?" :options="options3" name="data3"/>
     </div>
   </div>
 
   <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
     <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Religião</h1>
     <div class="rounded">
-      <USelectMenu v-model="selected_religion" :options="religion"/>
+      <USelectMenu v-model="selected_religion" :options="religion" placeholder="Selecione sua religião"ame="religionchoice"/>
     </div>
   </div>
 
