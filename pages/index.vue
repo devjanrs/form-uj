@@ -1,56 +1,82 @@
 <script setup lang="ts">
-  const method = ['Pix', 'Dinheiro', 'Débito', 'Crédito']
+    const method = ['Pix', 'Dinheiro', 'Débito', 'Crédito']
 
-  const selected = ref(method[0])
+    const selected = ref(method[0])
 
-  const religion = ['Evangélico', 'Católico', 'Espírita', 'Outros']
+    const religion = ['Evangélico', 'Católico', 'Espírita', 'Outros']
 
-  const selected_religion = ref(religion[0])
+    const selected_religion = ref(religion[0])
 
-  const options1 = [{
-  value: 'Sim',
-  label: 'Sim'
-}, {
-  value: 'Não',
-  label: 'Não'
-}]
+    const options1 = [{
+    value: 'Sim',
+    label: 'Sim'
+    }, {
+      value: 'Não',
+      label: 'Não'
+    }]
 
-const selected1 = ref('')
+    const selected1 = ref('')
 
-const options2 = [{
-  value: 'Sim',
-  label: 'Sim'
-}, {
-  value: 'Não',
-  label: 'Não'
-}]
+    const options2 = [{
+      value: 'Sim',
+      label: 'Sim'
+    }, {
+      value: 'Não',
+      label: 'Não'
+    }]
 
-const selected2 = ref('')
+    const selected2 = ref('')
 
-const options3 = [{
-  value: 'Sim',
-  label: 'Sim'
-}, {
-  value: 'Não',
-  label: 'Não'
-}]
+    const options3 = [{
+      value: 'Sim',
+      label: 'Sim'
+    }, {
+      value: 'Não',
+      label: 'Não'
+    }]
 
-const selected3 = ref('')
+    const selected3 = ref('')
+
+    const colorMode = useColorMode()
+    const isDark = computed({
+      get () {
+        return colorMode.value === 'dark'
+      },
+      set () {
+        colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+      }
+    })
 
 </script>
 
 <template>
   <header class="bg-teal-800">
 
-    <div class="text-white flex flex-row space-x-1 space-y-2 m-auto p-1">
-      <img class="w-20" src="/public/logo uj.png" alt="logo unidade jovem branco">
-      <div class="text-sm">
-        <h1>Unidade Jovem </h1>
-        <h2>Encontro de Jovens</h2>
-        <h3>Data: 12, 13, 14 de Julho de 2024</h3>
-      </div>
+    <div class= "flex flex-row space-x-1 space-y-2 m-auto p-1">
+      <UAvatar class="mt-5"
+      size="lg"
+      src="https://raw.githubusercontent.com/devjanrs/form-uj/main/public/logo%20uj.png"
+      alt="Avatar"
+      />
+      <UAlert color=""
+      title="Unidade Jovem"
+      description="Encontro de Jovens - Data: 12, 13, 14 de Julho de 2024"
+      />
     </div>
   </header>
+
+  <ClientOnly>
+    <UButton
+      :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
+      color="gray"
+      variant="ghost"
+      aria-label="Theme"
+      @click="isDark = !isDark"
+    />
+    <template #fallback>
+      <div class="w-8 h-8"/>
+    </template>
+  </ClientOnly>
 
   <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
     <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Informações Pessoais</h1>
@@ -59,23 +85,23 @@ const selected3 = ref('')
         <UInput/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="RG" required>
+      <UFormGroup size="xl" label="RG" required :ui="{wrapper: 'mt-4'}">
         <UInput/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="CPF" required>
+      <UFormGroup size="xl" label="CPF" required :ui="{wrapper: 'mt-4'}">
         <UInput/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="Data de Nascimento" required>
+      <UFormGroup size="xl" label="Data de Nascimento" required :ui="{wrapper: 'mt-4'}">
         <UInput type="date"/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="Tel. Residencial" required>
+      <UFormGroup size="xl" label="Tel. Residencial" required :ui="{wrapper: 'mt-4'}">
         <UInput/>
       </UFormGroup>
   
-      <UFormGroup size="xl" label="Tel. Celular" required>
+      <UFormGroup size="xl" label="Tel. Celular" required :ui="{wrapper: 'mt-4'}">
         <UInput/>
       </UFormGroup>
     </div>
@@ -83,6 +109,7 @@ const selected3 = ref('')
 
   <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
     <h1 class="bg-teal-800 text-white p-2 rounded font-medium">Forma de pagamento (Não aceitamos cheque)</h1>
+    <p class="text-sm font-medium">Valor R$430,00</p>
     <div class="rounded">
       <USelectMenu v-model="selected" :options="method" placeholder="Selecione o método"/>
     </div>
@@ -104,7 +131,7 @@ const selected3 = ref('')
     </div>
   </div>
 
-  <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1 bg-zinc-200 rounded">
+  <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1 rounded">
     <h1 class="text-red-700 font-semibold p-1 rounded mb-1 text-base">
       NÃO NOS RESPONSABILIZAMOS PELA PERDA OU EXTRAVIO DE OBJETOS PESSOAIS.
       A GUARDA E RESPONSABILIDADE DOS MESMOS É EXCLUSIVAMENTE DO ENCONTRISTA.</h1>
@@ -119,6 +146,18 @@ const selected3 = ref('')
     trailing
   />
 
+  <footer class="bg-teal-800">
+    <div class= "mx-auto flex flex-col">
 
+      <h1 class="mx-auto flex mt-4 mb-1 text-sm font-medium text-white"
+      >Fique por dentro de todas as novidades seguindo o nosso instagram</h1>
+
+      <a 
+      class="mx-auto flex mt-1 mb-2 text-sm font-medium text-white" 
+      href="https://www.instagram.com/unidadejovem/" 
+      target="_blank"
+      >@unidadejovem</a>
+    </div>    
+  </footer>
 </template>
 
