@@ -146,18 +146,16 @@
     trailing
   />
 
-  <footer class="bg-teal-800">
-    <div class= "mx-auto flex flex-col">
-
-      <h1 class="mx-auto flex mt-4 mb-1 text-sm font-medium text-white"
+  <footer class="bg-teal-800 flex flex-col p-2">
+    <h1 class="mx-auto flex mt-2 text-sm font-medium text-white"
       >Fique por dentro de todas as novidades seguindo o nosso instagram</h1>
 
-      <a 
-      class="mx-auto flex mt-1 mb-2 text-sm font-medium text-white" 
+    <a 
+      class="mx-auto flex mt-1 text-sm font-medium text-white" 
       href="https://www.instagram.com/unidadejovem/" 
       target="_blank"
       >@unidadejovem</a>
-    </div>    
+   
   </footer>
 </template>
 
