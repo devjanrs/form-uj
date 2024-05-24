@@ -56,14 +56,14 @@
     .required('O nome é obrigatório')
     .min(10, 'Preencha com seu nome completo'),
     rg: string()
-    .min(12, 'Deve haver 12 caracteres (contando com pontos e traço)')
+    .min(9, 'Deve haver 09 caracteres')
     .required('O nº de RG é obrigatório'),
     cpf: string()
-    .min(14, 'Deve haver 14 caracteres (contando com pontos e traço)')
+    .min(11, 'Deve haver 11 caracteres')
     .required('O nº de CPF é obrigatório'),
     birth: string().required('Insira sua data de nascimento'),
-    tel1: number(),
-    tel2: number()
+    tel1: string(),
+    tel2: string()
     .min(9, 'Digite seu número de telefone completo')
     .required('Insira seu número de telefone'),
     pay: string().required('Selecione a forma de pagamento'),
@@ -88,6 +88,9 @@
     // Do something with event.data
     console.log(event.data)
   }
+
+  import { vMaska } from "maska"
+
 
 </script>
 
@@ -134,23 +137,23 @@
         </UFormGroup>
     
         <UFormGroup size="xl" label="RG" name="rg" required :ui="{wrapper: 'mt-4'}">
-          <UInput v-model="state.rg" placeholder="xx.xxx.xxx-x"/>
+          <UInput v-model="state.rg" placeholder="xx.xxx.xxx-x" v-maska data-maska="##.###.###-#"/>
         </UFormGroup>
-    
+
         <UFormGroup size="xl" label="CPF" name="cpf" required :ui="{wrapper: 'mt-4'}">
-          <UInput v-model="state.cpf" placeholder="xxx.xxx.xxx-xx"/>
+          <UInput v-model="state.cpf" placeholder="xxx.xxx.xxx-xx" v-maska data-maska="###.###.###-##"/>
         </UFormGroup>
     
         <UFormGroup size="xl" label="Data de Nascimento" name="birth" required :ui="{wrapper: 'mt-4'}">
           <UInput type="date" v-model="state.birth"/>
         </UFormGroup>
     
-        <UFormGroup size="xl" label="Tel. Residencial" name="tel1" :ui="{wrapper: 'mt-4'}">
-          <UInput v-model="state.tel1"/>
+        <UFormGroup size="xl" label="Tel. Residencial" required name="tel1" :ui="{wrapper: 'mt-4'}">
+          <UInput v-model="state.tel1" v-maska data-maska="+55 (##) ####-####"/>
         </UFormGroup>
     
         <UFormGroup size="xl" label="Tel. Celular" required name="tel2" :ui="{wrapper: 'mt-4'}">
-          <UInput v-model="state.tel2"/>
+          <UInput v-model="state.tel2" v-maska data-maska="+55 (##) 9 ####-####"/>
         </UFormGroup>
       </div>
     </div>
