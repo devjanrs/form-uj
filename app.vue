@@ -1,10 +1,8 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-  <div>
+  <NuxtLoadingIndicator />
+  <NuxtLayout>
     <NuxtPage />
-    <UNotifications />
-  </div>
+  </NuxtLayout>
+  <UNotifications />
+  <USlideovers />
 </template>
