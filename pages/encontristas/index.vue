@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { encontristas, getEncontristas } = useEncontrista();
+const { encontristas, getEncontristas, loading } = useEncontrista();
 
 const columns = [
     {key: 'id',
@@ -25,7 +25,7 @@ const columns = [
 await getEncontristas();
 </script>
 <template>
-    <UTable :columns="columns" :rows="encontristas" />
+    <UTable :loading="loading" :columns="columns" :rows="encontristas" />
 
 </template>
 

@@ -14,6 +14,10 @@
         description="Encontro de Jovens - Data: 12, 13, 14 de Julho de 2024"
       />
     </div>
+    <div class="w-full flex gap-4 mx-4 text-white ">
+      <NuxtLink class="hover:bg-primary-600" to="/"> Cadastros </NuxtLink>
+      <NuxtLink class="hover:bg-primary-600" to="/encontristas"> Encontristas </NuxtLink>
+    </div>
   </div>
   <slot />
 </template>
