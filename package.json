@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify-json/material-symbols": "^1.1.81",
     "@nuxt/ui": "^2.16.0",
     "@supabase/supabase-js": "^2.43.4",
     "date-fns": "^2.30.0",
