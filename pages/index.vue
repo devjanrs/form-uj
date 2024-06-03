@@ -1,16 +1,23 @@
 <script setup lang="ts">
     const items = [
-    'https://picsum.photos/1920/1080?random=1',
-    'https://picsum.photos/1920/1080?random=2',
-    'https://picsum.photos/1920/1080?random=3',
-    'https://picsum.photos/1920/1080?random=4',
-    'https://picsum.photos/1920/1080?random=5',
-    'https://picsum.photos/1920/1080?random=6'
+    'https://raw.githubusercontent.com/devjanrs/form-uj/main/public/slide1.jpeg',
+    'https://raw.githubusercontent.com/devjanrs/form-uj/main/public/slide2.jpeg',
+    'https://raw.githubusercontent.com/devjanrs/form-uj/main/public/slide3.jpeg'
     ] 
 </script>
 
 <template>
-    <UCarousel v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }" class="rounded-lg overflow-hidden" arrows>
-    <img :src="item" class="w-full" draggable="false">
-  </UCarousel>
+    <UCarousel 
+        v-slot="{ item }" 
+        :items="items" 
+        :ui="{ item: 'basis-full' }" 
+        class="rounded-lg overflow-hidden" 
+        arrows>
+        <img :src="item" class="w-full" draggable="false">
+    </UCarousel>
+
+    <UButton 
+    class="mx-auto flex mt-4 mb-5 bg-teal-800"
+    >Realizar inscrição
+    </UButton>
 </template>
