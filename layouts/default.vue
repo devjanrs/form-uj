@@ -1,22 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { UiSideMenu } from "#components";
+
+const slideover = useSlideover();
+
+const openSideMenu = () => {
+  slideover.open(UiSideMenu, {
+    onClose: slideover.close,
+  });
+};
+</script>
 <template>
   <div class="bg-teal-800">
-    <div class="flex flex-row space-x-1 space-y-2 m-auto p-1">
-      <UAvatar
-        class="mt-5"
-        size="lg"
-        src="https://raw.githubusercontent.com/devjanrs/form-uj/main/public/logo%20uj.png"
-        alt="Avatar"
-      />
-      <UAlert
-        color=""
-        title="Unidade Jovem"
-        description="Encontro de Jovens - Data: 12, 13, 14 de Julho de 2024"
-      />
-    </div>
-    <div class="w-full flex gap-4 mx-4 text-white ">
-      <NuxtLink class="hover:bg-primary-600" to="/"> Cadastros </NuxtLink>
-      <NuxtLink class="hover:bg-primary-600" to="/encontristas"> Encontristas </NuxtLink>
+    <div
+      class="flex justify-between items-center text-white text-2xl px-4 py-2"
+    >
+      <div class="flex gap-4 items-center">
+        <UIcon name="i-material-symbols-menu" @click="openSideMenu" />
+        <NuxtImg class="size-10" src="logo-uj.png" />
+      </div>
     </div>
   </div>
   <slot />
