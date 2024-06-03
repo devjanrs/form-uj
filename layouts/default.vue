@@ -8,6 +8,16 @@ const openSideMenu = () => {
     onClose: slideover.close,
   });
 };
+
+const colorMode = useColorMode();
+const isDark = computed({
+  get() {
+    return colorMode.value === "dark";
+  },
+  set() {
+    colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
+  },
+});
 </script>
 <template>
   <div class="bg-teal-800">
@@ -18,6 +28,15 @@ const openSideMenu = () => {
         <UIcon name="i-material-symbols-menu" @click="openSideMenu" />
         <NuxtImg class="size-10" src="logo-uj.png" />
       </div>
+      <UButton
+        :icon="
+          isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'
+        "
+        color="white"
+        variant="link"
+        aria-label="Theme"
+        @click="isDark = !isDark"
+      />
     </div>
   </div>
   <slot />
