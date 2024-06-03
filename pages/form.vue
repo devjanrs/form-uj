@@ -77,6 +77,11 @@ const state = reactive({
   birth: undefined,
   tel1: undefined,
   tel2: undefined,
+  pay: undefined,
+  data1: undefined,
+  data2: undefined,
+  data3: undefined,
+  religionchoice: undefined
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -86,9 +91,12 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     cpf: state.cpf,
     dt_nascimento: state.birth,
     contato: state.tel1,
-    alergico: false,
-    cuidados_medicos: false,
-    medicamento: false
+    contato2: state.tel2,
+    mt_pagamento: state.pay,
+    cuidados_medicos: state.data1,
+    medicamento: state.data2,
+    alergico: state.data3,
+    religiao: state.religionchoice
   };
 
   await addEncontrista(encontrista);
@@ -270,7 +278,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       size="sm"
       color="primary"
       variant="solid"
-      label="Realizar inscrição"
+      label="Finalizar inscrição"
       :loading="loading"
       trailing
     />

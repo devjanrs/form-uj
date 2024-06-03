@@ -14,11 +14,29 @@ const columns = [
     {key: 'cpf',
         label: 'CPF'
     },
+    {key: 'dt_nascimento',
+        label: 'Data de Nascimento'
+    },
     {key: 'contato',
-        label: 'Contato'
+        label: 'Telefone'
+    },
+    {key: 'contato2',
+        label: 'Celular'
+    },
+    {key: 'mt_pagamento',
+        label: 'Método de pagamento'
+    },
+    {key: 'cuidados_medicos',
+        label: 'Cuidados médicos'
+    },
+    {key: 'medicamento',
+        label: 'Medicamentos'
+    },
+    {key: 'alergico',
+        label: 'Alérgico'
     },
     {key: 'religiao',
-        label: 'Religiao'
+        label: 'Religião'
     },
 ]
 

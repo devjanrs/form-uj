@@ -4,6 +4,8 @@ export interface Encontrista {
   cpf: string;
   dt_nascimento: Date;
   contato: string;
+  contato2: string;
+  mt_pagamento: string;
   cuidados_medicos: boolean;
   medicamento: boolean;
   alergico: boolean;
