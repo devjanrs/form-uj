@@ -26,7 +26,11 @@ const isDark = computed({
     >
       <div class="flex gap-4 items-center">
         <UIcon name="i-material-symbols-menu" @click="openSideMenu" />
-        <NuxtImg fit="cover" src="logo-unidade.png" width="120"/>
+        <NuxtImg fit="cover" src="logo-unidade.png" width="120"/>       
+      </div>
+      <div class="flex justify-between items-end text-lg font-mono px-4 gap-10 ml-auto">
+        <h1>Unidade Store</h1>
+        <h1>Mídias</h1>
       </div>
       <UButton
         :icon="
