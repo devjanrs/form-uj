@@ -20,13 +20,13 @@ const isDark = computed({
 });
 </script>
 <template>
-  <div class="bg-teal-800">
+  <div class="bg-neutral-900">
     <div
       class="flex justify-between items-center text-white text-2xl px-4 py-2"
     >
       <div class="flex gap-4 items-center">
         <UIcon name="i-material-symbols-menu" @click="openSideMenu" />
-        <NuxtImg class="size-10" src="logo-uj.png" />
+        <NuxtImg fit="cover" src="logo-unidade.png" width="120"/>
       </div>
       <UButton
         :icon="
@@ -40,7 +40,7 @@ const isDark = computed({
     </div>
   </div>
   <slot />
-  <footer class="bg-teal-800 flex flex-col p-2">
+  <footer class="bg-neutral-900 flex flex-col p-2">
     <h1 class="mx-auto flex mt-2 text-sm font-medium text-white">
       Fique por dentro de todas as novidades seguindo o nosso instagram
     </h1>
