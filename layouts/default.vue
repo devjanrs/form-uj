@@ -20,7 +20,7 @@ const isDark = computed({
 });
 </script>
 <template>
-  <div class="bg-neutral-900">
+  <header class="bg-neutral-900">
     <div
       class="flex justify-between items-center text-white text-2xl px-4 py-2"
     >
@@ -55,19 +55,20 @@ const isDark = computed({
         @click="isDark = !isDark"
       />
     </div>
-  </div>
-  <slot />
-  <footer class="bg-neutral-900 flex flex-col p-2">
-    <h1 class="mx-auto flex mt-2 text-sm font-medium text-white">
-      Fique por dentro de todas as novidades seguindo o nosso instagram
-    </h1>
+  </header>
 
-    <a
-      class="mx-auto flex mt-1 text-sm font-medium text-white"
-      href="https://www.instagram.com/unidadejovem/"
-      target="_blank"
-      >@unidadejovem</a
+  <slot/>
+
+  <footer class="bg-neutral-900 flex flex-col p-2">
+    <div
+      class="flex justify-between items-center text-white text-2xl px-4 py-2"
     >
+      <div class="flex gap-4 items-center">
+        <NuxtImg fit="cover" src="logo-unidade.png" width="80"/>       
+      </div>
+
+    </div>
+    
   </footer>
 </template>
 

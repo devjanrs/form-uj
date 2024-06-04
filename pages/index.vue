@@ -22,6 +22,7 @@
     <UButton 
     class="mx-auto flex mt-4 mb-5 bg-slate-950"
     icon="i-heroicons-pencil-square"
+    @click="navigateTo('/form')"
     >Realizar inscrição!
     </UButton>
 
