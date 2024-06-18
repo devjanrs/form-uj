@@ -15,7 +15,7 @@ const selected_religion = ref(religion[5]);
 
 const options1 = [
   {
-    value: "Sim",
+    value: 'Sim',
     label: "Sim",
   },
   {
@@ -93,7 +93,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-  <div class="w-[50%] mx-auto my-10">
+  <div class="w-full md:w-[50%] mx-auto my-10">
     <UForm :schema="schema" :state="state" @submit="onSubmit">
       <div class="flex flex-col gap-4">
         <UCard
@@ -180,6 +180,15 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
               name="data1"
               required
             />
+
+            <UTextarea
+            class="mt-4"
+            v-if="selected1.valueOf() === 'Sim'"
+            color="bg-teal-800" 
+            variant="outline" 
+            placeholder="Descreva os cuidados médicos que você precisa" 
+            />
+
           </UFormGroup>
           <UFormGroup
             size="xl"
@@ -193,6 +202,15 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
               name="data2"
               required
             />
+
+            <UTextarea 
+            class="mt-4"
+            v-if="selected2.valueOf() === 'Sim'"
+            color="bg-teal-800" 
+            variant="outline" 
+            placeholder="Descreva os medicamentos" 
+            />
+
           </UFormGroup>
           <UFormGroup size="xl" label="É alergico?" required name="data3">
             <URadioGroup
@@ -201,11 +219,18 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
               name="data3"
               required
             />
+            <UTextarea 
+            class="mt-4"
+            v-if="selected3.valueOf() === 'Sim'"
+            color="bg-teal-800" 
+            variant="outline" 
+            placeholder="Descreva..." 
+            />
           </UFormGroup>
           </div>
         </UCard>
 
-        <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
+        <div class="flex flex-col gap-2 p-2 mt-1">
           <h1 class="bg-teal-800 text-white p-2 rounded font-medium">
             Forma de pagamento (Não aceitamos cheque)
           </h1>
@@ -221,7 +246,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
           </div>
         </div>
 
-        <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1">
+        <div class="flex flex-col gap-2 p-2 mt-1">
           <h1 class="bg-teal-800 text-white p-2 rounded font-medium">
             Religião
           </h1>
