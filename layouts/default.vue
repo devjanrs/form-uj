@@ -30,7 +30,7 @@ const isDark = computed({
       </div>
       <div class="flex justify-between items-end text-lg font-mono px-4 gap-10 ml-auto">
 
-        <div class="flex px-4 gap-8 items-center justify-center text-nowrap text-base">
+        <div class="flex px-4 gap-8 items-center justify-center text-nowrap text-sm">
           <NuxtLink 
           to="#" 
           external 
