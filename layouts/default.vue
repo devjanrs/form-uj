@@ -29,21 +29,26 @@ const isDark = computed({
         <NuxtImg fit="cover" src="logo-unidade.png" width="110"/>       
       </div>
       <div class="flex justify-between items-end text-lg font-mono px-4 gap-10 ml-auto">
-        <NuxtLink 
-        to="#" 
-        external 
-        target="blank">
-          <UIcon name="i-heroicons-building-storefront-solid" />
-        Unidade Store
+
+        <div class="flex px-4 gap-8 items-center justify-center text-nowrap text-base">
+          <NuxtLink 
+          to="#" 
+          external 
+          target="blank">
+            <UIcon name="i-heroicons-building-storefront-solid" />
+              Unidade Store
         </NuxtLink>
+        
 
         <NuxtLink 
-        to="https://www.instagram.com/unidadejovem/" 
-        external 
-        target="blank">
-          <UIcon name="i-heroicons-share-solid" />
-        Mídias
+          to="https://www.instagram.com/unidadejovem/" 
+          external 
+          target="blank">
+            <UIcon name="i-heroicons-share-solid" />
+              Mídias
         </NuxtLink>
+        </div>
+        
       </div>
       <UButton
         :icon="
@@ -63,7 +68,7 @@ const isDark = computed({
     <div
       class="flex justify-between items-center text-white text-2xl px-4 py-2"
     >
-      <div class="flex gap-4 items-center">
+      <div class="flex gap-4 items-center justify-center">
         <NuxtImg fit="cover" src="logo-unidade.png" width="80"/>       
       </div>
 
