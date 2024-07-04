@@ -56,6 +56,8 @@ const { addEncontrista, loading } = useEncontrista();
 
 const schema = object({});
 
+const checkTerm = ref(true)
+
 type Schema = InferType<typeof schema>;
 
 const state = reactive({
@@ -100,7 +102,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
           :ui="{
             header: {
               base: ' text-white text-2xl rounded-t-md',
-              background: 'bg-teal-800',
+              background: 'bg-neutral-900',
             },
           }"
         >
@@ -160,7 +162,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
           :ui="{
             header: {
               base: ' text-white text-2xl rounded-t-md',
-              background: 'bg-teal-800',
+              background: 'bg-neutral-900',
             },
           }"
         >
@@ -231,7 +233,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         </UCard>
 
         <div class="flex flex-col gap-2 p-2 mt-1">
-          <h1 class="bg-teal-800 text-white p-2 rounded font-medium">
+          <h1 class="bg-neutral-900 text-white p-2 rounded font-medium">
             Forma de pagamento (Não aceitamos cheque)
           </h1>
           <p class="text-sm font-medium">Valor R$430,00</p>
@@ -247,7 +249,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         </div>
 
         <div class="flex flex-col gap-2 p-2 mt-1">
-          <h1 class="bg-teal-800 text-white p-2 rounded font-medium">
+          <h1 class="bg-neutral-900 text-white p-2 rounded font-medium">
             Religião
           </h1>
           <div class="rounded">
@@ -262,16 +264,22 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         </div>
 
         <div class="flex flex-col gap-2 p-2 w-1/2 mx-auto mt-1 rounded">
-          <h1 class="text-red-700 font-semibold p-1 rounded mb-1 text-base">
-            NÃO NOS RESPONSABILIZAMOS PELA PERDA OU EXTRAVIO DE OBJETOS
-            PESSOAIS. A GUARDA E RESPONSABILIDADE DOS MESMOS É EXCLUSIVAMENTE DO
-            ENCONTRISTA.
-          </h1>
+          <UCheckbox 
+            v-model="checkTerm" 
+            name="Termo"
+            required 
+            label="Estou ciente de que sou exclusivamente responsável pela guarda de meus objetos pessoais 
+            e que a direção da IAUC não se responsabiliza por perdas ou extravios." 
+            :ui =" {
+              label: 'text-red-700 dark:text-red-700'
+            }"
+          />
         </div>
 
         <UButton
+          v-if="checkTerm.valueOf() == true"
           type="submit"
-          class="mx-auto flex mt-4 mb-5 bg-teal-800"
+          class="mx-auto flex mt-4 mb-5 bg-neutral-900"
           icon="i-heroicons-pencil-square"
           size="sm"
           color="primary"
