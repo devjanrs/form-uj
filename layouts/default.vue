@@ -31,14 +31,6 @@ const isDark = computed({
       <div class="flex justify-between items-end text-lg font-mono px-4 gap-10 ml-auto">
 
         <div class="flex px-4 gap-8 items-center justify-center text-nowrap text-sm">
-          <NuxtLink 
-          to="#" 
-          external 
-          target="blank">
-            <UIcon name="i-heroicons-building-storefront-solid" />
-              Unidade Store
-        </NuxtLink>
-        
 
         <NuxtLink 
           to="https://www.instagram.com/unidadejovem/" 
